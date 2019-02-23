@@ -49,6 +49,11 @@ export function findDeclaration(node: ts.Node, typeChecker: ts.TypeChecker): ts.
     return declaration;
 }
 
+export function isAny(type: ts.Type): boolean {
+
+    return tsutils.isTypeFlagSet(type, ts.TypeFlags.Any);
+}
+
 export function isConstDeclaration(declaration: ts.Declaration): boolean {
 
     let variableDeclarationList: ts.VariableDeclarationList | null = null;

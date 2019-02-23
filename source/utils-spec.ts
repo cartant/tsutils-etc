@@ -8,7 +8,7 @@ import { tsquery } from "@phenomnomnominal/tsquery";
 import { expect } from "chai";
 import { Compiler } from "ts-snippet";
 import * as ts from "typescript";
-import { couldBeType, isIntersectionType, isUnionType } from "./utils";
+import { couldBeType, isAny, isIntersectionType, isUnionType } from "./utils";
 
 describe("utils", () => {
 
@@ -84,6 +84,27 @@ describe("utils", () => {
     describe("findDeclaration", () => {
 
         it.skip("should be tested", () => {
+        });
+    });
+
+    describe("isAny", () => {
+
+        it("should match any", () => {
+            const { sourceFile, typeChecker } = compile(`
+                let a: any;
+            `);
+            const [node] = tsquery(sourceFile, "VariableDeclaration");
+            const type = typeChecker.getTypeAtLocation(node);
+            expect(isAny(type)).to.be.true;
+        });
+
+        it("should not match non-any", () => {
+            const { sourceFile, typeChecker } = compile(`
+                let a: string;
+            `);
+            const [node] = tsquery(sourceFile, "VariableDeclaration");
+            const type = typeChecker.getTypeAtLocation(node);
+            expect(isAny(type)).to.be.false;
         });
     });
 
