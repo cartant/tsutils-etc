@@ -79,6 +79,26 @@ describe("utils", () => {
             expect(couldBeType(type, "A")).to.be.true;
             expect(couldBeType(type, "B")).to.be.true;
         });
+
+        it("should support fully-qualifie types", () => {
+            const { sourceFile, typeChecker } = compile(`
+                import { A } from "./a";
+                class B {}
+                let a: A;
+                let b: B;
+            `);
+            const [nodeA, nodeB] = tsquery(sourceFile, "VariableDeclaration");
+            const typeA = typeChecker.getTypeAtLocation(nodeA);
+            const typeB = typeChecker.getTypeAtLocation(nodeB);
+            expect(couldBeType(typeA, "A", {
+                name: /"a"/,
+                typeChecker
+            })).to.be.true;
+            expect(couldBeType(typeB, "B", {
+                name: /"b"/,
+                typeChecker
+            })).to.be.false;
+        });
     });
 
     describe("findDeclaration", () => {
@@ -183,6 +203,8 @@ describe("utils", () => {
         typeChecker: ts.TypeChecker
     } {
         const program = compiler.compile({
+            "a.ts": "export class A {}",
+            "b.ts": "export class B {}",
             "source.ts": source
         });
         return {

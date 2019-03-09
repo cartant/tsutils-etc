@@ -14,25 +14,32 @@ export function couldBeFunction(type: ts.Type): boolean {
         couldBeType(type, InternalSymbolName.Function);
 }
 
-export function couldBeType(type: ts.Type, name: string | RegExp): boolean {
+export function couldBeType(
+    type: ts.Type,
+    name: string | RegExp,
+    qualified?: {
+        name: RegExp,
+        typeChecker: ts.TypeChecker
+    }
+): boolean {
 
     if (isReferenceType(type)) {
         type = type.target;
     }
 
-    if (isType(type, name)) {
+    if (isType(type, name, qualified)) {
         return true;
     }
 
     if (isIntersectionType(type) || isUnionType(type)) {
-        return type.types.some((t) => couldBeType(t, name));
+        return type.types.some((t) => couldBeType(t, name, qualified));
     }
 
     const baseTypes = type.getBaseTypes();
     if (!baseTypes) {
         return false;
     }
-    return baseTypes.some((t) => couldBeType(t, name));
+    return baseTypes.some((t) => couldBeType(t, name, qualified));
 }
 
 export function findDeclaration(node: ts.Node, typeChecker: ts.TypeChecker): ts.Declaration | undefined {
@@ -102,9 +109,19 @@ export function isThis(node: ts.Node): boolean {
     return node.kind === ts.SyntaxKind.ThisKeyword;
 }
 
-export function isType(type: ts.Type, name: string | RegExp): boolean {
+export function isType(
+    type: ts.Type,
+    name: string | RegExp,
+    qualified?: {
+        name: RegExp,
+        typeChecker: ts.TypeChecker
+    }
+): boolean {
 
     if (!type.symbol) {
+        return false;
+    }
+    if (qualified && !qualified.name.test(qualified.typeChecker.getFullyQualifiedName(type.symbol))) {
         return false;
     }
     return (typeof name === "string") ?
