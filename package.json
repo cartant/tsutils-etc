@@ -43,9 +43,6 @@
   "peerDependencies": {
     "tsutils": "^3.0.0"
   },
-  "prettier": {
-    "tabWidth": 2
-  },
   "private": true,
   "publishConfig": {
     "tag": "latest"
