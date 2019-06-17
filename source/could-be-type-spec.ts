@@ -86,7 +86,7 @@ describe("couldBeType", () => {
     expect(couldBeType(type, "B")).to.be.true;
   });
 
-  it("should support fully-qualifie types", () => {
+  it("should support fully-qualified types", () => {
     const { sourceFile, typeChecker } = compile(
       compiler,
       `
