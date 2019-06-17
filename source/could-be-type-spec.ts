@@ -19,7 +19,7 @@ describe("couldBeType", () => {
       `
       class A {}
       let a: A;
-    `
+      `
     );
     const [node] = tsquery(sourceFile, "VariableDeclaration");
     const type = typeChecker.getTypeAtLocation(node);
@@ -33,7 +33,7 @@ describe("couldBeType", () => {
       class A {}
       class B {}
       let b: B;
-    `
+      `
     );
     const [node] = tsquery(sourceFile, "VariableDeclaration");
     const type = typeChecker.getTypeAtLocation(node);
@@ -48,7 +48,7 @@ describe("couldBeType", () => {
       class A {}
       class B extends A {}
       let b: B;
-    `
+      `
     );
     const [node] = tsquery(sourceFile, "VariableDeclaration");
     const type = typeChecker.getTypeAtLocation(node);
@@ -63,7 +63,7 @@ describe("couldBeType", () => {
       class A {}
       class B {}
       let ab: A & B;
-    `
+      `
     );
     const [node] = tsquery(sourceFile, "VariableDeclaration");
     const type = typeChecker.getTypeAtLocation(node);
@@ -78,7 +78,7 @@ describe("couldBeType", () => {
       class A {}
       class B {}
       let ab: A | B;
-    `
+      `
     );
     const [node] = tsquery(sourceFile, "VariableDeclaration");
     const type = typeChecker.getTypeAtLocation(node);
@@ -94,7 +94,7 @@ describe("couldBeType", () => {
       class B {}
       let a: A;
       let b: B;
-    `
+      `
     );
     const [nodeA, nodeB] = tsquery(sourceFile, "VariableDeclaration");
     const typeA = typeChecker.getTypeAtLocation(nodeA);

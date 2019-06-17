@@ -20,7 +20,7 @@ describe("isIntersectionType", () => {
       class A {}
       class B {}
       let ab: A & B;
-    `
+      `
     );
     const [node] = tsquery(sourceFile, "VariableDeclaration");
     const type = typeChecker.getTypeAtLocation(node);

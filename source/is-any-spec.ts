@@ -18,7 +18,7 @@ describe("isAny", () => {
       compiler,
       `
       let a: any;
-    `
+      `
     );
     const [node] = tsquery(sourceFile, "VariableDeclaration");
     const type = typeChecker.getTypeAtLocation(node);
@@ -30,7 +30,7 @@ describe("isAny", () => {
       compiler,
       `
       let a: string;
-    `
+      `
     );
     const [node] = tsquery(sourceFile, "VariableDeclaration");
     const type = typeChecker.getTypeAtLocation(node);
