@@ -4,7 +4,6 @@
  */
 
 import * as ts from "typescript";
-import { InternalSymbolName } from "typescript";
 import { couldBeType } from "./could-be-type";
 
 export function couldBeFunction(type: ts.Type): boolean {
@@ -12,6 +11,6 @@ export function couldBeFunction(type: ts.Type): boolean {
     type.getCallSignatures().length > 0 ||
     couldBeType(type, "Function") ||
     couldBeType(type, "ArrowFunction") ||
-    couldBeType(type, InternalSymbolName.Function)
+    couldBeType(type, ts.InternalSymbolName.Function)
   );
 }
