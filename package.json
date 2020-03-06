@@ -70,6 +70,8 @@
     "dist:clean": "rimraf dist",
     "dist:copy": "node scripts/pack.js && cpy CHANGELOG.md LICENSE README.md dist/",
     "lint": "tslint --project tsconfig.json source/**/*.ts",
+    "prettier": "prettier --write \"./source/**/*.{js,json,ts}\"",
+    "prettier:ci": "prettier --check \"./source/**/*.{js,json,ts}\"",
     "test": "yarn run lint && yarn run test:build && yarn run test:mocha",
     "test:build": "yarn run test:clean && tsc -p tsconfig.json",
     "test:clean": "rimraf build",
