@@ -14,7 +14,7 @@ export function couldImplement(
   }
 ): boolean {
   const { valueDeclaration } = type.symbol;
-  if (ts.isClassDeclaration(valueDeclaration)) {
+  if (valueDeclaration && ts.isClassDeclaration(valueDeclaration)) {
     const { heritageClauses } = valueDeclaration;
     if (heritageClauses) {
       const implemented = heritageClauses.some(
