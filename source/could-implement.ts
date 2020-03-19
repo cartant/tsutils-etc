@@ -13,17 +13,20 @@ export function couldImplement(
     typeChecker: ts.TypeChecker;
   }
 ): boolean {
-  const { valueDeclaration } = type.symbol;
-  if (valueDeclaration && ts.isClassDeclaration(valueDeclaration)) {
-    const { heritageClauses } = valueDeclaration;
-    if (heritageClauses) {
-      const implemented = heritageClauses.some(
-        ({ token, types }) =>
-          token === ts.SyntaxKind.ImplementsKeyword &&
-          types.some(node => isMatchingNode(node, name, qualified))
-      );
-      if (implemented) {
-        return true;
+  const { symbol } = type;
+  if (symbol) {
+    const { valueDeclaration } = symbol;
+    if (valueDeclaration && ts.isClassDeclaration(valueDeclaration)) {
+      const { heritageClauses } = valueDeclaration;
+      if (heritageClauses) {
+        const implemented = heritageClauses.some(
+          ({ token, types }) =>
+            token === ts.SyntaxKind.ImplementsKeyword &&
+            types.some(node => isMatchingNode(node, name, qualified))
+        );
+        if (implemented) {
+          return true;
+        }
       }
     }
   }
