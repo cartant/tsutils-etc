@@ -1,3 +1,10 @@
+<a name="1.2.2"></a>
+## [1.2.2](https://github.com/cartant/tsutils-etc/compare/v1.2.1...v1.2.2) (2020-03-20)
+
+## Fixes
+
+* Added `undefined` guard for `symbol` in `couldImplement`. ([01ee44d](https://github.com/cartant/rxjs-tslint-rules/commit/01ee44d))
+
 <a name="1.2.1"></a>
 ## [1.2.1](https://github.com/cartant/tsutils-etc/compare/v1.2.0...v1.2.1) (2020-03-20)
 
