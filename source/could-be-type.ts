@@ -4,6 +4,7 @@
  */
 
 import * as ts from "typescript";
+import { couldImplement } from "./could-implement";
 import { isIntersectionType } from "./is-intersection-type";
 import { isReferenceType } from "./is-reference-type";
 import { isType } from "./is-type";
@@ -30,8 +31,12 @@ export function couldBeType(
   }
 
   const baseTypes = type.getBaseTypes();
-  if (!baseTypes) {
-    return false;
+  if (baseTypes && baseTypes.some(t => couldBeType(t, name, qualified))) {
+    return true;
   }
-  return baseTypes.some(t => couldBeType(t, name, qualified));
+
+  if (couldImplement(type, name, qualified)) {
+    return true;
+  }
+  return false;
 }
