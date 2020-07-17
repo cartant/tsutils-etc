@@ -117,13 +117,13 @@ describe("couldBeType", () => {
     expect(
       couldBeType(typeA, "A", {
         name: /"a"/,
-        typeChecker
+        typeChecker,
       })
     ).to.be.true;
     expect(
       couldBeType(typeB, "B", {
         name: /"b"/,
-        typeChecker
+        typeChecker,
       })
     ).to.be.false;
   });

@@ -16,10 +16,10 @@ export function compile(
   const program = compiler.compile({
     "a.ts": "export class A {}",
     "b.ts": "export class B {}",
-    "source.ts": source
+    "source.ts": source,
   });
   return {
     sourceFile: program.getSourceFile("source.ts")!,
-    typeChecker: program.getTypeChecker()
+    typeChecker: program.getTypeChecker(),
   };
 }

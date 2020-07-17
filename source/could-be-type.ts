@@ -27,11 +27,11 @@ export function couldBeType(
   }
 
   if (isIntersectionType(type) || isUnionType(type)) {
-    return type.types.some(t => couldBeType(t, name, qualified));
+    return type.types.some((t) => couldBeType(t, name, qualified));
   }
 
   const baseTypes = type.getBaseTypes();
-  if (baseTypes && baseTypes.some(t => couldBeType(t, name, qualified))) {
+  if (baseTypes && baseTypes.some((t) => couldBeType(t, name, qualified))) {
     return true;
   }
 

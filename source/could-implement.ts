@@ -22,7 +22,7 @@ export function couldImplement(
         const implemented = heritageClauses.some(
           ({ token, types }) =>
             token === ts.SyntaxKind.ImplementsKeyword &&
-            types.some(node => isMatchingNode(node, name, qualified))
+            types.some((node) => isMatchingNode(node, name, qualified))
         );
         if (implemented) {
           return true;
