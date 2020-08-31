@@ -6,12 +6,11 @@
 
 import { tsquery } from "@phenomnomnominal/tsquery";
 import { readFileSync } from "fs";
-import { resolve } from "path";
 import * as ts from "typescript";
 
 export function printMembers(enumName: string, value: number, bitwise = false) {
   const content = readFileSync(
-    resolve(__dirname, "../node_modules/typescript/lib/typescript.d.ts")
+    require.resolve("typescript/lib/typescript.d.ts")
   ).toString();
   const sourceFile = ts.createSourceFile(
     "typescript.d.ts",
