@@ -28,7 +28,6 @@
     "tsutils": "^3.0.0",
     "typescript": "~4.0.2"
   },
-  "es2015": "./dist/esm2015/index.js",
   "homepage": "https://github.com/cartant/tsutils-etc",
   "husky": {
     "hooks": {
@@ -43,8 +42,8 @@
   "lint-staged": {
     "*.{js,ts}": "prettier --write"
   },
-  "main": "./dist/index.js",
-  "module": "./dist/esm5/index.js",
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
   "name": "tsutils-etc",
   "optionalDependencies": {},
   "peerDependencies": {
@@ -59,13 +58,11 @@
     "url": "https://github.com/cartant/tsutils-etc.git"
   },
   "scripts": {
-    "dist": "yarn run dist:build && yarn run dist:copy",
-    "dist:build": "yarn run dist:clean && yarn run dist:build:cjs && yarn run dist:build:esm2015 && yarn run dist:build:esm5",
+    "dist": "yarn run dist:clean && yarn run dist:build",
+    "dist:build": "yarn run dist:build:cjs && yarn run dist:build:esm",
     "dist:build:cjs": "tsc -p tsconfig-dist-cjs.json",
-    "dist:build:esm2015": "tsc -p tsconfig-dist-esm2015.json",
-    "dist:build:esm5": "tsc -p tsconfig-dist-esm5.json",
+    "dist:build:esm": "tsc -p tsconfig-dist-esm.json",
     "dist:clean": "rimraf dist",
-    "dist:copy": "node scripts/pack.js && cpy CHANGELOG.md LICENSE README.md dist/",
     "lint": "tslint --project tsconfig.json source/**/*.ts",
     "prettier": "prettier --write \"./source/**/*.{js,json,ts}\"",
     "prettier:ci": "prettier --check \"./source/**/*.{js,json,ts}\"",
@@ -75,6 +72,6 @@
     "test:mocha": "mocha build/**/*-spec.js",
     "test:watch": "yarn run lint && yarn run test:build && karma start"
   },
-  "types": "./dist/index.d.ts",
+  "types": "./dist/esm/index.d.ts",
   "version": "1.2.2"
 }
