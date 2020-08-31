@@ -49,7 +49,7 @@
   "peerDependencies": {
     "tsutils": "^3.0.0"
   },
-  "private": true,
+  "private": false,
   "publishConfig": {
     "tag": "latest"
   },
