@@ -1,3 +1,10 @@
+<a name="1.3.1"></a>
+## [1.3.1](https://github.com/cartant/tsutils-etc/compare/v1.3.0...v1.3.1) (2020-08-30)
+
+## Fixes
+
+* Find `typescript` using `require.resolve`. ([6a296b1](https://github.com/cartant/rxjs-tslint-rules/commit/6a296b1))
+
 <a name="1.3.0"></a>
 ## [1.3.0](https://github.com/cartant/tsutils-etc/compare/v1.2.2...v1.3.0) (2020-08-30)
 
