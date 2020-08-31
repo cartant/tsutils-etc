@@ -1,3 +1,10 @@
+<a name="1.3.0"></a>
+## [1.3.0](https://github.com/cartant/tsutils-etc/compare/v1.2.2...v1.3.0) (2020-08-30)
+
+## Features
+
+* Added `ts-flags` and `ts-kind` `bin` scripts for looking up flags and kinds from AST nodes. ([3fdd82f](https://github.com/cartant/rxjs-tslint-rules/commit/3fdd82f))
+
 <a name="1.2.2"></a>
 ## [1.2.2](https://github.com/cartant/tsutils-etc/compare/v1.2.1...v1.2.2) (2020-03-20)
 
