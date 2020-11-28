@@ -1,3 +1,10 @@
+<a name="1.3.2"></a>
+## [1.3.2](https://github.com/cartant/tsutils-etc/compare/v1.3.1...v1.3.2) (2020-11-28)
+
+## Changes
+
+* Use `files` in `package.json` instead of `.npmignore`. ([53d8f90](https://github.com/cartant/rxjs-tslint-rules/commit/53d8f90))
+
 <a name="1.3.1"></a>
 ## [1.3.1](https://github.com/cartant/tsutils-etc/compare/v1.3.0...v1.3.1) (2020-08-30)
 
