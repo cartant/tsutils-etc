@@ -83,7 +83,7 @@ describe("couldBeType", () => {
     const [node] = tsquery(sourceFile, "VariableDeclaration");
     const type = typeChecker.getTypeAtLocation(node);
     expect(couldBeType(type, "A")).to.be.true;
-    // expect(couldBeType(type, "B")).to.be.true;
+    expect(couldBeType(type, "B")).to.be.true;
   });
 
   it("should match an intersection type", () => {
