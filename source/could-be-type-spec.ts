@@ -71,6 +71,21 @@ describe("couldBeType", () => {
     expect(couldBeType(type, "B")).to.be.true;
   });
 
+  it("should match an implemented generic interface", () => {
+    const { sourceFile, typeChecker } = compile(
+      compiler,
+      `
+      interface A<T> { value: T; }
+      class B<T> implements A<T> { constructor(public value: T) {} }
+      let b = new B<string>("B");
+      `
+    );
+    const [node] = tsquery(sourceFile, "VariableDeclaration");
+    const type = typeChecker.getTypeAtLocation(node);
+    expect(couldBeType(type, "A")).to.be.true;
+    // expect(couldBeType(type, "B")).to.be.true;
+  });
+
   it("should match an intersection type", () => {
     const { sourceFile, typeChecker } = compile(
       compiler,

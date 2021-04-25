@@ -41,8 +41,9 @@ function isMatchingNode(
     typeChecker: ts.TypeChecker;
   }
 ): boolean {
+  const { expression } = node;
   if (qualified) {
-    const type = qualified.typeChecker.getTypeAtLocation(node);
+    const type = qualified.typeChecker.getTypeAtLocation(expression);
     if (type) {
       const qualifiedName = qualified.typeChecker.getFullyQualifiedName(
         type.symbol
@@ -52,6 +53,6 @@ function isMatchingNode(
       }
     }
   }
-  const text = node.getText();
+  const text = expression.getText();
   return typeof name === "string" ? text === name : Boolean(text.match(name));
 }
