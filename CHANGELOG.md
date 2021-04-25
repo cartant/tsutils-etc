@@ -1,3 +1,10 @@
+<a name="1.3.3"></a>
+## [1.3.3](https://github.com/cartant/tsutils-etc/compare/v1.3.2...v1.3.3) (2021-04-25)
+
+## Fixes
+
+* Support generic interfaces in `couldBeType`. ([b1f115d](https://github.com/cartant/rxjs-tslint-rules/commit/b1f115d))
+
 <a name="1.3.2"></a>
 ## [1.3.2](https://github.com/cartant/tsutils-etc/compare/v1.3.1...v1.3.2) (2020-11-28)
 
