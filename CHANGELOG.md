@@ -1,3 +1,10 @@
+<a name="1.3.4"></a>
+## [1.3.4](https://github.com/cartant/tsutils-etc/compare/v1.3.3...v1.3.4) (2021-05-29)
+
+## Changes
+
+* Downlevel to ES2018. ([0cd6f56](https://github.com/cartant/rxjs-tslint-rules/commit/0cd6f56)
+
 <a name="1.3.3"></a>
 ## [1.3.3](https://github.com/cartant/tsutils-etc/compare/v1.3.2...v1.3.3) (2021-04-25)
 
