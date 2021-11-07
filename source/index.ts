@@ -14,5 +14,6 @@ export * from "./is-reference-type";
 export * from "./is-this";
 export * from "./is-type";
 export * from "./is-union-type";
+export * from "./is-unknown";
 export * from "./is-within-call-expression-expression";
 export * from "./is-within-parameter-declaration";
