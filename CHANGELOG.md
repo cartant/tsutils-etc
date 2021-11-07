@@ -1,3 +1,10 @@
+<a name="1.4.1"></a>
+## [1.4.1](https://github.com/cartant/tsutils-etc/compare/v1.4.0...v1.4.1) (2021-11-08)
+
+## Fixes
+
+* Add `isUnknown` to index. ([89e35f2](https://github.com/cartant/rxjs-tslint-rules/commit/89e35f2)
+
 <a name="1.4.0"></a>
 ## [1.4.0](https://github.com/cartant/tsutils-etc/compare/v1.3.5...v1.4.0) (2021-11-08)
 
