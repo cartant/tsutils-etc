@@ -1,3 +1,10 @@
+<a name="1.4.2"></a>
+## [1.4.2](https://github.com/cartant/tsutils-etc/compare/v1.4.1...v1.4.2) (2023-03-29)
+
+## Fixes
+
+* Widen the TypeScript peer dependency. ([5e4890e](https://github.com/cartant/rxjs-tslint-rules/commit/5e4890e)
+
 <a name="1.4.1"></a>
 ## [1.4.1](https://github.com/cartant/tsutils-etc/compare/v1.4.0...v1.4.1) (2021-11-08)
 
